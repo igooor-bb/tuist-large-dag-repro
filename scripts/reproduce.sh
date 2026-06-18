@@ -10,7 +10,7 @@ Default:
   scripts/reproduce.sh stress --no-focus
 
 Presets:
-  realistic  Smaller smoke fixture with bounded longest path.
+  realistic  Medium-sized fixture below stress.
   stress     Primary recursive stack-safety stress fixture.
 
 Modes:

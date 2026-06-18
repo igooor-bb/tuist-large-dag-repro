@@ -89,7 +89,7 @@ Use a specific Tuist binary:
 TUIST_BIN=/path/to/tuist ./scripts/reproduce.sh stress --no-focus
 ```
 
-Run the smaller smoke preset:
+Run the medium-sized preset:
 
 ```bash
 ./scripts/reproduce.sh realistic --no-focus
@@ -194,12 +194,12 @@ you only need the first crash:
 ./scripts/reproduce.sh stress --no-focus --skip-repeat
 ```
 
-Compatibility wrappers are also available:
+Shortcut scripts are also available:
 
 ```bash
-./scripts/reproduce-linter.sh            # stress --no-focus
-./scripts/reproduce-realistic.sh         # realistic --focus
-./scripts/reproduce-focused-toposort.sh  # stress --focus
+./scripts/reproduce-stress.sh             # stress --no-focus
+./scripts/reproduce-stress-focused.sh     # stress --focus
+./scripts/reproduce-realistic-focused.sh  # realistic --focus
 ```
 
 ## Graph Shape
@@ -336,9 +336,9 @@ scripts/generate-fixture.py           generator, Python stdlib only
 scripts/verify-graph.py               DAG verifier
 scripts/graph-stats.py                graph statistics
 scripts/reproduce.sh                  main entrypoint
-scripts/reproduce-linter.sh           legacy stress --no-focus wrapper
-scripts/reproduce-realistic.sh        realistic --focus wrapper
-scripts/reproduce-focused-toposort.sh stress --focus wrapper
+scripts/reproduce-stress.sh           stress --no-focus shortcut
+scripts/reproduce-stress-focused.sh   stress --focus shortcut
+scripts/reproduce-realistic-focused.sh  realistic --focus shortcut
 scripts/clean-tuist-output.sh         keeps generated DSL
 scripts/clean.sh                      removes generated output
 ```
