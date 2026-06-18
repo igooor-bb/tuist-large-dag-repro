@@ -32,6 +32,22 @@ StaticProductsGraphLinter
 
 On a fully patched Tuist binary, generation should pass.
 
+## Contents
+
+- [What Stack-Safety Means Here](#what-stack-safety-means-here)
+- [Requirements](#requirements)
+- [Quick Start](#quick-start)
+- [Finding Crash Reports](#finding-crash-reports)
+- [Presets](#presets)
+- [Focused Target Note](#focused-target-note)
+- [What The Script Does](#what-the-script-does)
+- [Graph Shape](#graph-shape)
+- [Manual Commands](#manual-commands)
+- [Custom Preset Configuration](#custom-preset-configuration)
+- [Repository Files](#repository-files)
+- [Troubleshooting](#troubleshooting)
+- [Authorship Note](#authorship-note)
+
 ## What Stack-Safety Means Here
 
 This fixture investigates stack overflows caused by recursive graph traversal on
@@ -278,6 +294,40 @@ Clean all generated output:
 ./scripts/clean.sh
 ```
 
+## Custom Preset Configuration
+
+Reviewers can start from an existing preset and override individual generator
+parameters:
+
+```bash
+python3 scripts/generate-fixture.py \
+  --preset stress \
+  --layers 1800 \
+  --width 3 \
+  --foundation-count 60 \
+  --shared-count 250 \
+  --bridge-count 30 \
+  --project-size 25
+```
+
+Common knobs:
+
+```text
+--layers        increases graph depth
+--width         adds extra lower-index feature edges
+--shared-count  changes shared infrastructure size
+--bridge-count  changes high fan-in bridge target count
+--project-size  changes how many targets go into each Shard project
+--seed          keeps custom graphs reproducible
+```
+
+After changing parameters, run:
+
+```bash
+python3 scripts/verify-graph.py
+python3 scripts/graph-stats.py
+```
+
 ## Repository Files
 
 ```text
@@ -305,3 +355,8 @@ If Xcode opens, make sure the command includes `--no-open`; the scripts already
 do this.
 
 If `tuist` is not on `PATH`, pass `TUIST_BIN=/path/to/tuist`.
+
+## Authorship Note
+
+This fixture was mostly created with AI assistance and then reviewed and adjusted
+for the Tuist stack-safety reproduction use case.
