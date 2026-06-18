@@ -139,10 +139,10 @@ The same reports are usually stored under:
 
 ```text
 realistic
-  nodes: ~2000-3000
-  edges: ~8000-12000
-  longest path: 50-150
-  purpose: smaller smoke-sized graph
+  nodes: ~4200-5000
+  edges: ~16000-20000
+  longest path: 650-900
+  purpose: medium-sized repro below the stress preset
 
 stress
   nodes: ~3000-6000
