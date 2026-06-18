@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+
+Projects/
+Workspace.swift
+graph.json
+
+.tuist/
+TuistLargeDAGRepro.xcworkspace/
+*.xcodeproj/
+Derived/
+tuist-repro*.log
